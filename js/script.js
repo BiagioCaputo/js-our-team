@@ -1,4 +1,3 @@
-console.log("Js Ok")
 
 //Creo l'array di oggetti 
 
@@ -12,3 +11,15 @@ const teamMembers = [
 ]
 
 console.log(teamMembers);
+
+//stampo in console i vari elementi dell'array di oggetti separati
+
+//Giro tutti gli oggetti dell'array con un ciclo for e li salvo singolarmente in una variabile 
+for(let i = 0; i < teamMembers.length; i++){
+    const member = teamMembers[i];
+    //Giro tutti gli elementi in ogni oggetto stampandoli singolarmente
+    for(let key in member) {
+        console.log(`${key} : ${member[key]}`)
+    }
+}
+
