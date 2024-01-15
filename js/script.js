@@ -12,7 +12,9 @@ const teamMembers = [
 
 console.log(teamMembers);
 
-//stampo in console i vari elementi dell'array di oggetti separati
+
+const membersLabel = document.getElementById("members-label");
+/**************** Stampo in console i vari elementi dell'array di oggetti separati ****************/
 
 //Giro tutti gli oggetti dell'array con un ciclo for e li salvo singolarmente in una variabile 
 for(let i = 0; i < teamMembers.length; i++){
@@ -23,3 +25,31 @@ for(let i = 0; i < teamMembers.length; i++){
     }
 }
 
+/**************** Preparo la stampa degli oggetti dell'array nelle card del DOM ****************/
+
+let membersCard ='';
+
+//inizializzo il sistema row-col
+membersCard += `<div class="row row-gap-5">`;
+
+//creo un ciclo che persiste fino a quando non ho raggiunto la fine dell'array di elementi 
+for(let i = 0; i < teamMembers.length; i++){
+    const member = teamMembers[i];
+    //creo le card che si riempiranno con i paramentri forniti dagli oggetti nell'array
+    membersCard += `
+    <div class="col col-4">
+        <div class="card">
+            <img src="img/${member.memberImg}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">${member.name}</h5>
+                <p class="card-text text-center">${member.role}</p>
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+membersCard += `</div>`;
+
+//inserisco nell'html
+membersLabel.innerHTML = membersCard;
